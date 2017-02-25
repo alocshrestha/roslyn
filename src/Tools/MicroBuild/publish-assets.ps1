@@ -41,6 +41,7 @@ try
     switch ($branchName)
     {
         "dev15-rc3" { } 
+		"SeriouslyDontDeadlockOnSolutionClose" { }
         "master" { } 
         "post-dev15" { } 
         default
