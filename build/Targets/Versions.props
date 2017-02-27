@@ -16,7 +16,7 @@
     <RoslynNuGetMoniker Condition="'$(RoslynNuGetMoniker)' == ''">dev</RoslynNuGetMoniker>
     <RoslynNuGetMoniker Condition="'$(OfficialBuild)' == 'true'">rc5</RoslynNuGetMoniker>
     <!-- This is the base of the NuGet versioning for prerelease packages -->
-    <NuGetPreReleaseVersion>$(RoslynFileVersionBase)-$(RoslynNuGetMoniker)</NuGetPreReleaseVersion>
+    <NuGetPreReleaseVersion>2.1.1-$(RoslynNuGetMoniker)</NuGetPreReleaseVersion>
 
     <!-- We should not be signing a build anywhere except for in MicroBuild, which will always specify 'BUILD_BUILDNUMBER'-->
     <BuildNumber Condition="'$(BuildNumber)' == ''">$(BUILD_BUILDNUMBER)</BuildNumber>
@@ -42,7 +42,7 @@
     <BuildNumberBuildOfTheDayPadded>$(BuildNumber.Split('.')[1].PadLeft(2,'0'))</BuildNumberBuildOfTheDayPadded>
 
     <!-- NuGet version -->
-    <NuGetReleaseVersion>$(RoslynFileVersionBase)</NuGetReleaseVersion>
+    <NuGetReleaseVersion>2.1.1</NuGetReleaseVersion>
     <NuGetPerBuildPreReleaseVersion>$(NuGetPreReleaseVersion)-$(BuildNumberFiveDigitDateStamp)-$(BuildNumberBuildOfTheDayPadded)</NuGetPerBuildPreReleaseVersion>
     <NuGetPackageRoot Condition="'$(NuGetPackageRoot)' == ''">$(NUGET_PACKAGES)</NuGetPackageRoot> <!-- Respect environment variable if set -->
     <NuGetPackageRoot Condition="'$(NuGetPackageRoot)' == '' AND '$(OS)' == 'Windows_NT'">$(UserProfile)\.nuget\packages</NuGetPackageRoot>
